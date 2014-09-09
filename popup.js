@@ -19,21 +19,20 @@ function openTrafficSite() {
 }
 
 function internationalisation() {
-	document.getElementById("dormitory_homepage").innerHTML = chrome.i18n.getMessage("dormitory_homepage");
-	document.getElementById("my_traffic").innerHTML = chrome.i18n.getMessage("my_traffic");
+	$("#dormitory_homepage").text(chrome.i18n.getMessage("dormitory_homepage"));
+	$("#my_traffic").text(chrome.i18n.getMessage("my_traffic"));
 }
 
 function updateTraffic() {
 	if (bgp.globalTraffic == -1) {
-		document.getElementById("traffic").innerHTML = "";
-		document.getElementById("traffic_remaining").innerHTML = "";
+		$("#traffic, #traffic_remaining").empty();
 		return;
 	}
 	var remaining = Math.floor((bgp.trafficVolume - bgp.trafficVolume * (bgp.usedTraffic / 100)));
 	if(remaining < 0 || isNaN(remaining)) remaining = 0;
 	
-	document.getElementById("traffic").innerHTML = bgp.usedTraffic.toFixed(2) + " %";
-	document.getElementById("traffic_remaining").innerHTML = remaining + " MB " + chrome.i18n.getMessage("remaining");
+	$("#traffic").text(bgp.usedTraffic.toFixed(2) + " %");
+	$("#traffic_remaining").text(remaining + " MB " + chrome.i18n.getMessage("remaining"));
 }
 
 
