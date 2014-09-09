@@ -1,4 +1,5 @@
-var usedTraffic = null;
+var usedTraffic = null,
+	trafficVolume = 7 * 1024;
 
 var dormitories = {
 	"HSS": {
