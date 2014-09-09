@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>AG DSN Traffic</title>
+		<title>AGDSN Traffic</title>
 		<style type="text/css">
 			body {
 				min-width: 150px;
@@ -46,50 +46,13 @@
 				margin-top: 5px;
 			}
 		</style>
-		<script type="text/javascript">
-			
-			var bgp = chrome.extension.getBackgroundPage();
-			
-			function openDormitoryHome() {
-				var dormitoryHomeURL = bgp.dormitories[localStorage["dormitory"]]["dormitoryHome"];
-				if (!dormitoryHomeURL) {
-					return;
-				}
-				chrome.tabs.create({'url':dormitoryHomeURL});
-				window.close();
-			}
-			
-			function openTrafficSite() {
-				var trafficSiteURL = bgp.dormitories[localStorage["dormitory"]]["dormitoryTrafficSite"];
-				if (!trafficSiteURL) {
-					return;
-				}
-				chrome.tabs.create({'url':trafficSiteURL});
-				window.close();
-			}
-			
-			function internationalisation() {
-				document.getElementById("dormitory_homepage").innerHTML = chrome.i18n.getMessage("dormitory_homepage");
-				document.getElementById("my_traffic").innerHTML = chrome.i18n.getMessage("my_traffic");
-			}
-			
-			function updateTraffic() {
-				if (bgp.globalTraffic == -1) {
-					document.getElementById("traffic").innerHTML = "";
-					document.getElementById("traffic_remaining").innerHTML = "";
-					return;
-				}
-				var trafficVolume = 6 * 1024;
-				var remaining = Math.floor((trafficVolume - trafficVolume*(bgp.globalTraffic/100)));
-				document.getElementById("traffic").innerHTML = bgp.globalTraffic.toFixed(2) + " %";
-				document.getElementById("traffic_remaining").innerHTML = remaining + " MB " + chrome.i18n.getMessage("remaining");
-			}
-			
-		</script>
+		
+		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="popup.js"></script>
 	</head>
-	<body onload="internationalisation(), updateTraffic()">
+	<body>
 		<p id="traffic"></p>
-		<p id="traffic_remaining">4000 MB remaining</p>
+		<p id="traffic_remaining">Please wait...</p>
 		<hr>
 		<p><a href="#" onclick="openDormitoryHome()" id="dormitory_homepage"></a></p>
 		<p><a href="#" onclick="openTrafficSite()" id="my_traffic"></a></p>	
