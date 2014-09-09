@@ -1,17 +1,18 @@
 {
-  "name": "AG DSN Traffic",
-  "version": "1.0.4",
+  "manifest_version": 2,
+  "name": "AGDSN Traffic",
+  "version": "1.1",
   "default_locale": "en",
   "description": "__MSG_description__",
-  "icons": { 
-			"16": "logo/logo_16.png",
-           	"48": "logo/logo_48.png",
-          	"128": "logo/logo_128.png" 
+  "icons": {
+	"16": "logo/logo_16.png",
+	"48": "logo/logo_48.png",
+	"128": "logo/logo_128.png" 
   },
   "browser_action": {
     "default_icon": "icon/hide.png",
-	"default_title": "AG DSN Traffic",
-	"popup": "popup.html"
+	"default_title": "AGDSN Traffic",
+	"default_popup": "popup.html"
   },
   "permissions": [
 	"tabs",
@@ -21,6 +22,8 @@
 	"http://wh10.tu-dresden.de/phpskripte/getMyTraffic.php",
 	"http://www.wh17.tu-dresden.de/traffic/prozent"
   ],
-	"background_page": "background.html",
-	"update_url": "https://www.wh2.tu-dresden.de/sites/default/files/chrome_traffic/updates.xml"
+  "background": {
+	"persistent": false,
+	"scripts": ["background.js"]
+  }
 }
