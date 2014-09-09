@@ -40,7 +40,11 @@ function updateTraffic() {
 $(function(){
 	chrome.runtime.getBackgroundPage(function(bgPage){
 		bgp = bgPage;
+		
 		internationalisation();
 		updateTraffic();
+		
+		$("#dormitory_homepage").click(openDormitoryHome);
+		$("#my_traffic").click(openTrafficSite);
 	});
 });
