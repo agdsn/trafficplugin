@@ -1,6 +1,4 @@
-var globalTraffic = -1;
-			
-			var dormitories = {
+var dormitories = {
 				"HSS":{
 					"dormitoryHome": "http://wh12.tu-dresden.de",
 					"dormitoryTrafficSite": "https://wh12.tu-dresden.de/traffic-o-meter.html",
@@ -56,7 +54,6 @@ var globalTraffic = -1;
 			
 			function clearState() {
 				chrome.browserAction.setIcon({path:"icon/hide.png"});
-				globalTraffic = -1;
 				localStorage["dormitory"] = "";
 			}
 		
