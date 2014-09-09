@@ -16,6 +16,7 @@
   },
   "permissions": [
 	"tabs",
+	"alarms",
     "http://wh12.tu-dresden.de/tom.addon2.php",
 	"http://www.wh2.tu-dresden.de/traffic/getMyTraffic.php",
 	"http://zeus.wh25.tu-dresden.de/traffic.php",
