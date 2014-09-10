@@ -90,11 +90,12 @@ function updateTraffic(){
 		return;
 	}
 	
-	$.get(dormitories[dorm].dormitoryTraffic, function(value){
-		var value = parseFloat(value);
+	$.get(dormitories[dorm].dormitoryTraffic, function(response){
+		var value = parseFloat(response);
+		
 		if(typeof value === 'number' && value >= 0){
 			var name = Math.round((32.0/100) * (value < 100 ? value : 100));
-			chrome.browserAction.setIcon({path:"icon/" + name + ".png"});
+			chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
 			usedTraffic = value;
 		} else {
 			clearState();
