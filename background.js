@@ -90,7 +90,7 @@ function updateTraffic(){
 		return;
 	}
 	
-	$.getJSON(dormitories[dorm].dormitoryTraffic, function(value){
+	$.get(dormitories[dorm].dormitoryTraffic, function(value){
 		var value = parseFloat(value);
 		if(typeof value === 'number' && value >= 0){
 			var name = Math.round((32.0/100) * (value < 100 ? value : 100));
