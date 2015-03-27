@@ -38,7 +38,7 @@ function updateTraffic() {
 	
 	var ind = parseFloat(bgp.usedTraffic.traffic["in"]);
 	var outd = parseFloat(bgp.usedTraffic.traffic["out"]);
-	$("#traffic_remaining").text(chrome.i18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GB / " + (bgp.trafficVolumePerDay / 1024).toFixed(2) + " GB " + chrome.i18n.getMessage("used"));
+	$("#traffic_k").text(chrome.i18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GB / " + (bgp.trafficVolumePerDay / 1024).toFixed(2) + " GB " + chrome.i18n.getMessage("used"));
 }
 
 
