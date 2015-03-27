@@ -6,7 +6,7 @@ var dormitories = {
 	"HSS": {
 		"dormitoryHome": "http://wh12.tu-dresden.de",
 		"dormitoryTrafficSite": "http://wh12.tu-dresden.de/traffic-o-meter.html",
-		"dormitoryTraffic": "https://wh12.tu-dresden.de/tom.addon2.php"
+		"dormitoryTraffic": "http://wh12.tu-dresden.de/tom.addon2.php"
 		},
 		
 	"WU": {
@@ -100,7 +100,6 @@ function updateTraffic(){
 		var outd = parseFloat(data.traffic["out"]);
 		
 		chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
-		button.icon = "./" + name + ".png";
 		
 		usedTraffic = data;
 	}).fail(function(){
