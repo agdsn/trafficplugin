@@ -9,6 +9,15 @@
     "message": "My Traffic"	
   },
   "remaining": {
-    "message": "remaining"	
+    "message": "Remaining: "	
+  },
+  "today": {
+	"message": "Heute"
+  },
+  "used": {
+	"message": "verbraucht"
+  },
+  "error": {
+	"message": "Error"
   }
 }

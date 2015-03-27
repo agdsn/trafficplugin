@@ -23,16 +23,22 @@ function internationalisation() {
 	$("#my_traffic").text(chrome.i18n.getMessage("my_traffic"));
 }
 
-function updateTraffic() {
-	if (bgp.globalTraffic == -1) {
-		$("#traffic, #traffic_remaining").empty();
+function updateTraffic() {	
+	if (!bgp.usedTraffic) {
+		$("#traffic_k").hide();
+		$("#traffic_err").show();
+		$("#traffic").text(chrome.u18n.getMessage("error"));
 		return;
 	}
-	var remaining = Math.floor((bgp.trafficVolume - bgp.trafficVolume * (bgp.usedTraffic / 100)));
-	if(remaining < 0 || isNaN(remaining)) remaining = 0;
+	$("#traffic_k").show();
+	$("#traffic_err").hide();
 	
-	$("#traffic").text(bgp.usedTraffic.toFixed(2) + " %");
-	$("#traffic_remaining").text(remaining + " MB " + chrome.i18n.getMessage("remaining"));
+	var quota = parseFloat(bgp.usedTraffic.quota);
+	$("#traffic").text(chrome.u18n.getMessage("remaining") + " " + (quota / 1024).toFixed(2) + " GB");
+	
+	var ind = parseFloat(bgp.usedTraffic.traffic["in"]);
+	var outd = parseFloat(bgp.usedTraffic.traffic["out"]);
+	$("#traffic_remaining").text(chrome.u18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GB / " + (trafficVolumePerDay / 1024).toFixed(2) + " GB " + chrome.u18n.getMessage("used"));
 }
 
 

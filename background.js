@@ -1,5 +1,6 @@
 var usedTraffic = null,
-	trafficVolume = 7 * 1024;
+	trafficVolumePerDay = 3 * 1024,
+	trafficVolume = trafficVolumePerDay * 7;
 
 var dormitories = {
 	"HSS": {
@@ -11,7 +12,7 @@ var dormitories = {
 	"WU": {
 		"dormitoryHome": "http://www.wh2.tu-dresden.de",
 		"dormitoryTrafficSite": "http://www.wh2.tu-dresden.de/de/usertraffic",
-		"dormitoryTraffic": "http://www.wh2.tu-dresden.de/traffic/getMyTraffic.php"
+		"dormitoryTraffic": "http://www.wh2.tu-dresden.de/traffic/getMyTrafficTest.php"
 	},
 	
 	"ZEU": {
@@ -44,11 +45,11 @@ function updateDormitory(cb){
 		/* Try to get traffic status from each dormitory - if server responds with a valid value,
 		we can assume that we belong to its network */
 		
-		$.get(dormitory.dormitoryTraffic, function(result){
-			var value = parseFloat(result);
-			if(typeof value === 'number' && value >= 0){
+		$.getJSON(dormitory.dormitoryTraffic, function(result){
+			var version = parseInt(result.version, 10);
+			if(version == 2){
 				if(works) throw "Multiple dormitories reported a valid traffic status. Can only belong to one network!";
-				
+			
 				works = key;
 				localStorage["dormitory"] = key;
 			}
@@ -70,7 +71,7 @@ function updateDormitory(cb){
 
 /** Resets all modified values to their defaults. */
 function clearState() {
-	chrome.browserAction.setIcon({path:"icon/hide.png"});
+	chrome.browserAction.setIcon({path:"icon/inactive.png"});
 	localStorage["dormitory"] = "";
 	usedTraffic = null;
 }
@@ -90,17 +91,18 @@ function updateTraffic(){
 		return;
 	}
 	
-	$.get(dormitories[dorm].dormitoryTraffic, function(response){
-		var value = parseFloat(response);
+	$.getJSON(dormitories[dorm].dormitoryTraffic, function(data){
+		var quota = parseFloat(data.quota);
+		var proc = Math.round(quota / trafficVolume * 100);
+		if(proc > 100) proc = 100;
+		var name = proc - (proc % 5);
+		var ind = parseFloat(data.traffic["in"]);
+		var outd = parseFloat(data.traffic["out"]);
 		
-		if(typeof value === 'number' && value >= 0){
-			var name = Math.round((32.0/100) * (value < 100 ? value : 100));
-			chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
-			usedTraffic = value;
-		} else {
-			clearState();
-			updateTraffic();
-		}
+		chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
+		button.icon = "./" + name + ".png";
+		
+		usedTraffic = data;
 	}).fail(function(){
 		clearState();
 		updateTraffic();

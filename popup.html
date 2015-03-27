@@ -8,7 +8,15 @@
 				min-width: 150px;
 				font-size: 0.85em;
 				font-family: Helvetica, Verdana, sans-serif;
+				margin: 10px;
 			}
+			
+			#footer {
+				position: fixed;
+				bottom: 10px;
+				width: 100%;
+			}
+			
 			a {
 				text-decoration: none;
 				color: #000;
@@ -31,7 +39,8 @@
 				padding: 0;
 				margin: 0;
 			}
-			#traffic_remaining {
+			
+			.traffic_remaining {
 				text-align: center;
 				font-size: 0.8em;
 				color: #999;
@@ -40,6 +49,7 @@
 				margin-top: 2px;
 				margin-bottom: 5px;
 			}
+			
 			p {
 				margin: 0;
 				padding: 0;
@@ -52,9 +62,13 @@
 	</head>
 	<body>
 		<p id="traffic"></p>
-		<p id="traffic_remaining">Please wait...</p>
-		<hr>
-		<p><a href="#" id="dormitory_homepage"></a></p>
-		<p><a href="#" id="my_traffic"></a></p>	
+		<p id="traffic_k" class="traffic_remaining">Please wait...</p>
+		<p id="traffic_err" class="traffic_remaining" style="visibility: hidden;"></p>
+		
+		<div id="footer">
+			<hr />
+			<p><a href="#" id="dormitory_homepage"></a></p>
+			<p><a href="#" id="my_traffic"></a></p>	
+		</div>
 	</body>
 </html>
