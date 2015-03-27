@@ -34,11 +34,11 @@ function updateTraffic() {
 	$("#traffic_err").hide();
 	
 	var quota = parseFloat(bgp.usedTraffic.quota);
-	$("#traffic").text(chrome.i18n.getMessage("remaining") + " " + (quota / 1024).toFixed(2) + " GB");
+	$("#traffic").text(chrome.i18n.getMessage("remaining") + " " + (quota / 1024).toFixed(2) + " GiB");
 	
 	var ind = parseFloat(bgp.usedTraffic.traffic["in"]);
 	var outd = parseFloat(bgp.usedTraffic.traffic["out"]);
-	$("#traffic_k").text(chrome.i18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GB / " + (bgp.trafficVolumePerDay / 1024).toFixed(2) + " GB " + chrome.i18n.getMessage("used"));
+	$("#traffic_k").text(chrome.i18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GiB / " + (bgp.trafficVolumePerDay / 1024).toFixed(2) + " GiB " + chrome.i18n.getMessage("used"));
 }
 
 
