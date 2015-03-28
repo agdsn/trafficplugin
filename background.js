@@ -12,7 +12,7 @@ var dormitories = {
 	"WU": {
 		"dormitoryHome": "http://www.wh2.tu-dresden.de",
 		"dormitoryTrafficSite": "http://www.wh2.tu-dresden.de/de/usertraffic",
-		"dormitoryTraffic": "http://www.wh2.tu-dresden.de/traffic/getMyTrafficTest.php"
+		"dormitoryTraffic": "http://www.wh2.tu-dresden.de/traffic/getMyTraffic.php"
 	},
 	
 	"ZEU": {
