@@ -62,7 +62,7 @@ function updateDormitory(cb){
 					cb(null, works);
 				} else {
 					clearState();
-					cb(chrome.i18n.getMessage("nothing"));
+					cb(chrome.i18n.getMessage("error"));
 				}
 			}
 		});
