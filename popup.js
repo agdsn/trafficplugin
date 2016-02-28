@@ -1,11 +1,9 @@
 var bgp = null;
 
 function openDormitoryHome() {
-	var dormitoryHomeURL = bgp.dormitories[localStorage["dormitory"]]["dormitoryHome"];
-	if (!dormitoryHomeURL) {
-		return;
-	}
-	chrome.tabs.create({'url':dormitoryHomeURL});
+	var dormitoryHomeURL = localStorage["dormitory"] && bgp.dormitories[localStorage["dormitory"]] ? bgp.dormitories[localStorage["dormitory"]]["dormitoryHome"] : null;
+
+	chrome.tabs.create({'url': dormitoryHomeURL ? dormitoryHomeURL : "https://agdsn.de"});
 	window.close();
 }
 
