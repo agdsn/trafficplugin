@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
   "name": "AGDSN Traffic",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "author": "Hagen Eckert, Christian Jacobs, Tim Kluge",
   "default_locale": "en",
   "description": "__MSG_description__",
   "icons": {
 	"16": "logo/logo_16.png",
 	"48": "logo/logo_48.png",
-	"128": "logo/logo_128.png" 
+	"128": "logo/logo_128.png"
   },
   "browser_action": {
     "default_icon": "icon/inactive.png",
@@ -18,18 +18,20 @@
   "permissions": [
 	"tabs",
 	"alarms",
-	
-    "http://wh12.tu-dresden.de/tom.addon2.php",
+
+  "http://wh12.tu-dresden.de/tom.addon2.php",
 	"http://www.wh2.tu-dresden.de/traffic/getMyTraffic.php",
 	"http://zeus.wh25.tu-dresden.de/traffic.php",
 	"http://wh10.tu-dresden.de/phpskripte/getMyTraffic.php",
 	"http://www.wh17.tu-dresden.de/traffic/prozent",
-	
-    "https://wh12.tu-dresden.de/tom.addon2.php",
+
+  "https://wh12.tu-dresden.de/tom.addon2.php",
 	"https://www.wh2.tu-dresden.de/traffic/getMyTraffic.php",
 	"https://zeus.wh25.tu-dresden.de/traffic.php",
 	"https://wh10.tu-dresden.de/phpskripte/getMyTraffic.php",
-	"https://www.wh17.tu-dresden.de/traffic/prozent"
+	"https://www.wh17.tu-dresden.de/traffic/prozent",
+
+  "https://agdsn.de/sipa/usertraffic"
   ],
   "background": {
 	"persistent": false,

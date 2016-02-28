@@ -10,11 +10,7 @@ function openDormitoryHome() {
 }
 
 function openTrafficSite() {
-	var trafficSiteURL = bgp.dormitories[localStorage["dormitory"]]["dormitoryTrafficSite"];
-	if (!trafficSiteURL) {
-		return;
-	}
-	chrome.tabs.create({'url':trafficSiteURL});
+	chrome.tabs.create({'url':'https://agdsn.de/sipa/usertraffic'});
 	window.close();
 }
 
@@ -23,7 +19,7 @@ function internationalisation() {
 	$("#my_traffic").text(chrome.i18n.getMessage("my_traffic"));
 }
 
-function updateTraffic() {	
+function updateTraffic() {
 	if (!bgp.usedTraffic) {
 		$("#traffic_k").hide();
 		$("#traffic_err").show();
@@ -32,10 +28,10 @@ function updateTraffic() {
 	}
 	$("#traffic_k").show();
 	$("#traffic_err").hide();
-	
+
 	var quota = parseFloat(bgp.usedTraffic.quota);
 	$("#traffic").text(chrome.i18n.getMessage("remaining") + " " + (quota / 1024).toFixed(2) + " GiB");
-	
+
 	var ind = parseFloat(bgp.usedTraffic.traffic["in"]);
 	var outd = parseFloat(bgp.usedTraffic.traffic["out"]);
 	$("#traffic_k").text(chrome.i18n.getMessage("today") + " " +  (ind / 1024 + outd / 1024).toFixed(2) + " GiB / " + (bgp.trafficVolumePerDay / 1024).toFixed(2) + " GiB " + chrome.i18n.getMessage("used"));
@@ -45,10 +41,10 @@ function updateTraffic() {
 $(function(){
 	chrome.runtime.getBackgroundPage(function(bgPage){
 		bgp = bgPage;
-		
+
 		internationalisation();
 		updateTraffic();
-		
+
 		$("#dormitory_homepage").click(openDormitoryHome);
 		$("#my_traffic").click(openTrafficSite);
 	});
