@@ -31,7 +31,8 @@
     "https://wh10.tu-dresden.de/phpskripte/getMyTraffic.php",
     "https://www.wh17.tu-dresden.de/traffic/prozent",
 
-    "https://agdsn.de/sipa/usertraffic"
+    "https://agdsn.de/sipa/usertraffic",
+    "https://www.agdsn.de/phpskripte/getMyTraffic.php"
   ],
   "background": {
     "persistent": false,
