@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "AGDSN Traffic",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "author": "Hagen Eckert, Christian Jacobs, Tim Kluge",
   "default_locale": "en",
   "description": "__MSG_description__",
@@ -35,7 +35,7 @@
     "https://www.agdsn.de/phpskripte/getMyTraffic.php"
   ],
   "background": {
-    "persistent": false,
+    "persistent": true,
     "scripts": ["jquery-2.1.1.min.js", "background.js"]
   }
 }
