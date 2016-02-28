@@ -1,15 +1,15 @@
 {
   "description": {
-    "message": "Zeigt den verfügbaren Internettraffic an."	
+    "message": "Zeigt den verfügbaren Internettraffic an."
   },
   "dormitory_homepage": {
-    "message": "Wohnheim Homepage"	
+    "message": "Wohnheim Homepage"
   },
   "my_traffic": {
-    "message": "Mein Traffic"	
+    "message": "Mein Traffic"
   },
   "remaining": {
-    "message": "Noch"	
+    "message": "Noch"
   },
   "today": {
 	"message": "Heute"
@@ -19,5 +19,8 @@
   },
   "error": {
 	"message": "Fehler"
+  },
+  "indorm": {
+    "message": "Nicht im Wohnheim?"
   }
 }

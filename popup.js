@@ -21,7 +21,7 @@ function internationalisation() {
 
 function updateTraffic() {
 	if (!bgp.usedTraffic) {
-		$("#traffic_k").hide();
+		$("#traffic_k").text(chrome.i18n.getMessage("indorm"));
 		$("#traffic_err").show();
 		$("#traffic").text(chrome.i18n.getMessage("error"));
 		return;

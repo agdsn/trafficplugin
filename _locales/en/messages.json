@@ -1,15 +1,15 @@
 {
   "description": {
-    "message": "Displays the available internet traffic."	
+    "message": "Displays the available internet traffic."
   },
   "dormitory_homepage": {
-    "message": "Dormitory Homepage"	
+    "message": "Dormitory Homepage"
   },
   "my_traffic": {
-    "message": "My Traffic"	
+    "message": "My Traffic"
   },
   "remaining": {
-    "message": "Remaining: "	
+    "message": "Remaining: "
   },
   "today": {
 	"message": "Heute"
@@ -19,5 +19,8 @@
   },
   "error": {
 	"message": "Error"
-  }
+},
+"indorm": {
+  "message": "Outside of dormitory?"
+}
 }
