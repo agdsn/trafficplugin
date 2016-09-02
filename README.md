@@ -1,7 +1,7 @@
-AGDSN Chrome browser plugin
+AGDSN Web extension
 ====================
 
-Browser addon for Google Chrome showing the current traffic usage, for use within the agdsn network.
+Browser addon showing the current traffic usage, for use within the agdsn network.
 Original version by Johannes Müller.
 
 Available at https://chrome.google.com/webstore/detail/agdsn-traffic/pficbpccpccgidlmjombjlbcihpikfch
