@@ -11,6 +11,10 @@ function clearState() {
 /** Requests the current traffic usage and updates the icon. */
 function updateTraffic(){
 	$.getJSON("https://agdsn.de/sipa/usertraffic/json", function(data){
+		if(!data["version"]){
+			clearState();
+			return;
+		}
 		var quota = parseFloat(data.quota);
 		var proc = Math.round(quota / trafficVolume * 100);
 		if(proc > 100) proc = 100;
