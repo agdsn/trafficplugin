@@ -1,28 +1,34 @@
 {
-  "manifest_version": 2,
-  "name": "AGDSN Traffic",
-  "version": "3.0.4",
-  "author": "Hagen Eckert, Christian Jacobs, Tim Kluge",
-  "default_locale": "en",
-  "description": "__MSG_description__",
-  "icons": {
-    "16": "logo/logo_16.png",
-    "48": "logo/logo_48.png",
-    "128": "logo/logo_128.png"
-  },
-  "browser_action": {
-    "default_icon": "icon/inactive.png",
-    "default_title": "AGDSN Traffic",
-    "default_popup": "popup.html"
-  },
-  "permissions": [
-    "alarms",
-
-    "https://agdsn.de/sipa/usertraffic",
-    "https://agdsn.de/sipa/usertraffic/json",
-    "https://agdsn.de/"
-  ],
-  "background": {
-    "scripts": ["jquery-2.1.1.min.js", "background.js"]
-  }
+    "manifest_version": 2,
+    "name": "AGDSN Traffic",
+    "version": "3.0.4",
+    "author": "Hagen Eckert, Christian Jacobs, Tim Kluge",
+    "default_locale": "en",
+    "description": "__MSG_description__",
+    "icons": {
+        "16": "logo/logo_16.png",
+        "48": "logo/logo_48.png",
+        "128": "logo/logo_128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "48": "icon/inactive.png"
+        },
+        "default_title": "AGDSN Traffic",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "alarms",
+        "https://agdsn.de/sipa/usertraffic",
+        "https://agdsn.de/sipa/usertraffic/json",
+        "https://agdsn.de/"
+    ],
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
 }
