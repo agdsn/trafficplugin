@@ -8,7 +8,7 @@ Available:
 
 - https://chrome.google.com/webstore/detail/agdsn-traffic/pficbpccpccgidlmjombjlbcihpikfch (Chrome)
 - https://addons.mozilla.org/de/firefox/addon/agdsn-traffic/ (Firefox)
-- Awaiting moderation (Opera)
+- https://addons.opera.com/de/extensions/details/agdsn-traffic/ (Opera)
 
 Edge support is pending until extension deployment via Windows Store is available.
 The extension can be used in developer mode on `edge` branch.  
