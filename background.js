@@ -18,7 +18,9 @@ function updateTraffic(){
 		var quota = parseFloat(data.quota);
 		var proc = Math.round(quota / maxQuota * 100);
 		if(proc > 100) proc = 100;
-		var name = proc - (proc % 5);
+		// Round the value up to the next 5% step 
+		// to not display the no more traffic icon when there is still some
+		var name = proc + 5 - (proc % 5);
 
 		chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
 
