@@ -1,6 +1,6 @@
 var usedTraffic = null,
-	trafficVolumePerDay = 3 * 1024 * 1024,
-	trafficVolume = trafficVolumePerDay * 7;
+	quotaPerDay = 3 * 1024 * 1024,
+	maxQuota = quotaPerDay * 21;
 
 /** Resets all modified values to their defaults. */
 function clearState() {
@@ -16,11 +16,12 @@ function updateTraffic(){
 			return;
 		}
 		var quota = parseFloat(data.quota);
-		var proc = Math.round(quota / trafficVolume * 100);
-		if(proc > 100) proc = 100;
-		var name = proc - (proc % 5);
-		var ind = parseFloat(data.traffic["in"]);
-		var outd = parseFloat(data.traffic["out"]);
+		var proc = Math.round(quota / maxQuota * 100);
+		
+		// Round the value up to the next 5% step 
+		// to not display the no more traffic icon when there is still some
+		var name = proc + 5 - (proc % 5);
+		if(name > 100) name = 100;
 
 		chrome.browserAction.setIcon({path: "icon/" + name + ".png"});
 
