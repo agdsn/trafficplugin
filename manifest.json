@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "AGDSN Traffic",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "author": "Hagen Eckert, Christian Jacobs, Tim Kluge",
   "default_locale": "en",
   "description": "__MSG_description__",
@@ -24,5 +24,10 @@
   ],
   "background": {
     "scripts": ["jquery-2.1.1.min.js", "background.js"]
+  },
+  "applications": {
+    "gecko": {
+      "id": "trafficplugin@agdsn.de"
+    }
   }
 }
