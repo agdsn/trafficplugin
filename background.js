@@ -1,5 +1,5 @@
 var usedTraffic = null,
-	quotaPerDay = 5 * 1024 * 1024,
+	quotaPerDay = 10 * 1024 * 1024,
 	maxQuota = quotaPerDay * 21;
 
 /** Resets all modified values to their defaults. */
